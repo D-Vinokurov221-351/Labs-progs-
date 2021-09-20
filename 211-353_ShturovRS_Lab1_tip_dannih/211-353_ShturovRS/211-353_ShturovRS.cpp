@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <bitset>
+#include <limits>
 
 using std::cout;
 using std::cin;
@@ -13,19 +14,20 @@ int main() {
 	unsigned int uint_min = 0, uint_max = 4294967295;
 	short short_min = -32768, short_max = 32768;
 	unsigned short ushort_min = 0, ushort_max = 65535;
-	long long_min = -2147483648, long_max = 2147483648;
-	//long long ll_min = 9223372036854775808, ll_max = 9223372036854775808;
-	//double double_min = 0b100000000000000000000000000000000000000000000000000000000000000, double_max = 0b0111111111111111111111111111111111111111111111111111111111111111;
-	//char char_min = 0, char_max = 255;
+	long long_min = -2147483648;
+	long long_max =  2147483647;
+	long long ll_min = 9223372036854775808, ll_max = 9223372036854775807;
+	double double_min = 1.7E-308, double_max = 1.7E+308;
+	char char_min = -128, char_max = 127;
 	bool bool_min = 0, bool_max = 1;
 	cout << "min int = " << int_min << ", max int = " << int_max << ", size of int = " << sizeof(int) << endl;
 	cout << "min unsigned int = " << uint_min << ", max unsigned int = " << uint_max << ", size of unsigned int = " << sizeof(unsigned int) << endl;
 	cout << "min short = " << short_min << ", max short = " << short_max << ", size of short = " << sizeof(short) << endl;
 	cout << "min unsigned short = " << ushort_min << ", max unsigned short = " << ushort_max << ",size of unsigned short = " << sizeof(unsigned short) << endl;
 	cout << "min long = " << long_min << ", max long = " << long_max << ", size of long = " << sizeof(long) << endl;
-	//cout << "min long long = " << ll_min << ", max long long = " << ll_max << ",size of long long = " << sizeof(long long) << endl;
-	//cout << "min double = " << double_min << ", max double = " << double_max << ",size of double = " << sizeof(double) << endl;
-	//cout << "min char = " << char_min << ", max char = " << char_max << ", size of char = " << sizeof(char) << endl;
+	cout << "min long long = " << ll_min << ", max long long = " << ll_max << ",size of long long = " << sizeof(long long) << endl;
+	cout << "min double = " << double_min << ", max double = " << double_max << ",size of double = " << sizeof(double) << endl;
+	cout << "min char = " << char_min << ", max char = " << char_max << ", size of char = " << sizeof(char) << endl;
 	cout << "min bool = " << bool_min << ", max bool = " << bool_max << ", size of bool = " << sizeof(bool) << endl;
 	cout << "3." << endl;	//Задание 3
 	short num;
@@ -51,5 +53,5 @@ int main() {
 	double cord1, cord2;
 	cout << "Введите координаты отрезка на прямой: ", cin >> cord1 >> cord2,"\n";
 	cout << "Середина отрезка находится в точке с координатой " << (cord2 + cord1) / 2 << endl;
-	return(0);
+	return 0;
 }
