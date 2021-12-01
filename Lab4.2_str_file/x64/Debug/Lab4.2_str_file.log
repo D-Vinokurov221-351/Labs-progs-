@@ -1,0 +1,8 @@
+﻿  Lab4.2_str_file.cpp
+C:\Users\schtu\GitLabs\Labs-progs-\Lab4.2_str_file\Lab4.2_str_file.cpp(14,44): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\schtu\GitLabs\Labs-progs-\Lab4.2_str_file\Lab4.2_str_file.cpp(22,43): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\schtu\GitLabs\Labs-progs-\Lab4.2_str_file\Lab4.2_str_file.cpp(23,45): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\schtu\GitLabs\Labs-progs-\Lab4.2_str_file\Lab4.2_str_file.cpp(24,77): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\schtu\GitLabs\Labs-progs-\Lab4.2_str_file\Lab4.2_str_file.cpp(32,44): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\schtu\GitLabs\Labs-progs-\Lab4.2_str_file\Lab4.2_str_file.cpp(53,44): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  Lab4.2_str_file.vcxproj -> C:\Users\schtu\GitLabs\Labs-progs-\x64\Debug\Lab4.2_str_file.exe

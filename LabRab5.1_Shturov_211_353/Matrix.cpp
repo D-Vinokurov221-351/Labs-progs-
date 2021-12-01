@@ -87,42 +87,26 @@ void Matrix::mult_number(int number)
 
 void Matrix::mult_matrix(const Matrix& temp)
 {
-	double** c = new double*[size_row];
-	double** a = new double* [size_row];
-	double** b = new double* [size_row];
-	for (int i = 0; i < this->size_row; i++)
+	if ((this->size_col == temp.size_row))
 	{
-		for (int k = 0; k < this->size_col; k++) {
-			a[i][k] = this->elem[i * this->size_col + k];
-		}
-	}
-	for (int i = 0; i < temp.size_row; i++)
-	{
-		for (int k = 0; k < temp.size_col; k++) {
-			b[i][k] = temp.elem[i * temp.size_col + k];
-		}
-	}
-	for (int i = 0; i < this->size_row; i++)
-	{
-		c[i] = new double[temp.size_col];
-		for (int j = 0; j < temp.size_col; j++)
-		{
-			c[i][j] = 0;
-			for (int k = 0; k < this->size_col; k++)
-				c[i][j] += a[i][k] * b[k][j];
-		}
-	}
-	int counter = 0;
-	for(int i = 0; i < this->size_row; i++) {
-		for (int j = 0; j < temp.size_col; j++) {
-			if (counter == size_col) {
-				std::cout << '\n';
-				counter = 0;
+		Matrix out(this->size_row, temp.size_col);
+		for (int i = 0; i < this->size_row; i++) {
+			for (int j = 0; j < temp.size_col; j++) {
+				for (int k = 0; k < this->size_col; k++) {
+					out.elem[i * temp.size_col + j] += this->elem[i * this->size_col + k] * temp.elem[k * temp.size_col + j];
+				}
 			}
-			std::cout << c[i][j] << ' ';
 		}
+		out.output();
 	}
-	//return Matrix();
+	else {
+		std::cout << "Enter Matrix input";
+		if (this->elem != nullptr)
+			delete[]this->elem;
+		if (temp.elem != nullptr)
+			delete[]temp.elem;
+		std::abort();
+	}
 }
 
 double Matrix::trase()

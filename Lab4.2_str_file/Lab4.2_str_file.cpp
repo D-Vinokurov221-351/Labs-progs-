@@ -46,12 +46,16 @@ string file_rename(string file_path_full) { // по введенному пол�
 }
 
 bool file_copy(const string file_path_full) {
+    int num;
     std::fstream fs;
+    std::fstream out;
     string temp;
+    num = file_path_full.find_first_of('.');
     fs.open(file_path_full, std::fstream::in);
+    out.open(file_path_full.substr(0, num) + "_copy" + file_path_full.substr(num, file_path_full.size() - num),std::fstream::out);
     while (!fs.eof()) {
         fs >> temp;
-        cout << temp;
+        out << temp << '\n';
     }
     return 1;
 }
