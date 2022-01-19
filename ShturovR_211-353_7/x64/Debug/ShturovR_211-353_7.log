@@ -1,0 +1,8 @@
+﻿  ShturovR_211-353_7.cpp
+C:\Users\schtu\GitLabs\Labs-progs-\ShturovR_211-353_7\ShturovR_211-353_7.cpp(72,55): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\schtu\GitLabs\Labs-progs-\ShturovR_211-353_7\ShturovR_211-353_7.cpp(87,49): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\schtu\GitLabs\Labs-progs-\ShturovR_211-353_7\ShturovR_211-353_7.cpp(104,51): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\schtu\GitLabs\Labs-progs-\ShturovR_211-353_7\ShturovR_211-353_7.cpp(125,49): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\schtu\GitLabs\Labs-progs-\ShturovR_211-353_7\ShturovR_211-353_7.cpp(138,51): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\schtu\GitLabs\Labs-progs-\ShturovR_211-353_7\ShturovR_211-353_7.cpp(151,53): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  ShturovR_211-353_7.vcxproj -> C:\Users\schtu\GitLabs\Labs-progs-\x64\Debug\ShturovR_211-353_7.exe

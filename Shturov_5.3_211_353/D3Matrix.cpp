@@ -79,6 +79,64 @@ void D3Matrix::input(int size)
 	}
 }
 
+void D3Matrix::copy(const D3Matrix& temp)
+{
+	if (elem != nullptr)
+		delete[]elem;
+	elem = new double[temp.cols * 3];
+	this->cols = temp.cols;
+	this->rows = temp.rows;
+	for (int i = 0; i < temp.cols * 3; i++) this->elem[i] = temp.elem[i];
+}
+
+void D3Matrix::operator+=(D3Matrix& temp)
+{
+	for (int i = 0; i < temp.rows*3; i++) {
+		this->elem[i] += temp.elem[i];
+	}
+}
+
+void D3Matrix::operator-=(D3Matrix& temp)
+{
+	for (int i = 0; i < temp.rows * 3; i++) {
+		this->elem[i] -= temp.elem[i];
+	}
+}
+
+void D3Matrix::operator=(const D3Matrix& temp)
+{
+	this->copy(temp);
+}
+
+void D3Matrix::operator+(D3Matrix& right)
+{
+	D3Matrix out;
+	out = right;
+	for (int i = 0; i < right.cols * 3; i++)
+	{
+		out.elem[i] = this->elem[i] + right.elem[i];
+	}
+	std::cout << out;
+}
+
+void D3Matrix::operator-(D3Matrix& right)
+{
+	D3Matrix out;
+	out = right;
+	for (int i = 0; i < right.cols * 3; i++)
+	{
+		out.elem[i] = this->elem[i] - right.elem[i];
+	}
+	std::cout << out;
+}
+
+
+void D3Matrix::operator*(double k)
+{
+	for (int i = 0; i < rows * 3; i++) elem[i] *= k;
+}
+
+
 void D3Matrix::input()
 {
 	setlocale(LC_ALL, "Russian");
@@ -91,6 +149,8 @@ void D3Matrix::input()
 std::istream& operator>>(std::istream& input, D3Matrix& temp)
 {
 	int size;
+	setlocale(LC_ALL, "Russian");
+	std::cout << "¬ведите размер матрицы ";
 	input >> size;
 	/*temp.rows = size;
 	temp.cols = size;
@@ -106,6 +166,38 @@ std::istream& operator>>(std::istream& input, D3Matrix& temp)
 	temp.input(size);
 	return input;
 }
+
+void operator-(D3Matrix& left)
+{
+	for (int i = 0; i < left.cols * 3; i++) left.elem[i] *= -1;
+	left.output();
+}
+
+/*D3Matrix operator*(D3Matrix& left, D3Matrix& right)
+{
+	if ((left.cols == right.rows))
+	{
+		D3Matrix out;
+		out = left;
+		for (int i = 0; i < left.rows; i++) {
+			for (int j = 0; j < right.cols; j++) {
+				for (int k = 0; k < left.cols; k++) {
+					out.elem[i * left.cols + j] += left.elem[i * left.cols + k] * right.elem[k * right.cols + j];
+				}
+			}
+		}
+		out.output();
+	}
+	else {
+		std::cout << "Enter Matrix input";
+		if (left.elem != nullptr)
+			delete[]left.elem;
+		if (right.elem != nullptr)
+			delete[]right.elem;
+		std::abort();
+	}
+	return D3Matrix();
+}*/
 
 std::ostream& operator<<(std::ostream& out, const D3Matrix& temp)
 {
