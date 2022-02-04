@@ -1,42 +1,29 @@
 ﻿#include <iostream>
 #include <queue>
-#include <stack>
+#include <algorithm>
 
 using std::cin;
 using std::cout;
 
-long long Div(long long a){
-    bool flag = 0;
-    long long b = a;
-    int abc[8] = { 7,11,13,17,19,21,27,29 };
-    do { b /= 30; } while (b / 30 > 30);
-    for (int i = 0; i < 8; i++) {
-        if (abc[i] == b) {
-            flag = 1;
-            break;
-        }
-    }
-    if (flag == 1) return 0;
-    return a;
-}
-
 int main() {
-    long long a = 30, count = 0, n;
-    std::queue <int> out;
-    cin >> n;
-    while (count < n) {
-        if (Div(a) != 0) {
-            out.push(a);
-            ++count;
-        }
-        a+=30;
+    int n; cin >> n;
+    std::queue<int> x2, x3, x5;
+    x2.push(2);
+    x3.push(3);
+    x5.push(5);
+    for (int i = 0; i < n; i++) {
+        int min_n = std::min(x2.front(), std::min(x3.front(), x5.front()));
+        cout << min_n << " ";
+        x2.push(min_n * 2);
+        x3.push(min_n * 3);
+        x5.push(min_n * 5);
+        if (x2.front() == min_n)
+            x2.pop();
+        if (x3.front() == min_n)
+            x3.pop();
+        if (x5.front() == min_n)
+            x5.pop();
     }
-
-    for (int i = 0; i < count; i++) {
-        cout << out.front() << " ";
-        out.pop();
-    }
-
     return 0;
 
 }
