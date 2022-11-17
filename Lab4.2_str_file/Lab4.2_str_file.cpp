@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cstring>
 #include <string> 
 #include <fstream> 
@@ -8,51 +8,52 @@ using std::string;
 using std::cout;
 using std::cin;
 
-string file_format(const string file_path_full) {   // по введенному полному расположению файла выводит расширение
-    int num;
+string file_format(const string file_path_full) {   // выводит расширение
+    int number;
     string abc;
-    num = file_path_full.find_first_of('.');
-    abc = file_path_full.substr(num, file_path_full.size()-num);
+    number = file_path_full.find_first_of('.');
+    abc = file_path_full.substr(number, file_path_full.size()-number);
     return abc;
 }
 
-string file_name(const string file_path_full) { //  по введенному полному расположению файла выводит название
-    int num, num1;
+string file_name(const string file_path_full) { //  выводит название
+    int number, number1;
     string abc;
-    num = file_path_full.find_last_of('.');
-    num1 = file_path_full.find_last_of("\\");
-    int a = file_path_full.size() - num1 - 1 - (file_path_full.size() - num);
-    abc = file_path_full.substr(num1+1, a);
+    number = file_path_full.find_last_of('.');
+    number1 = file_path_full.find_last_of("\\");
+    int a = file_path_full.size() - number1 - 1 - (file_path_full.size() - number);
+    abc = file_path_full.substr(number1+1, a);
     return abc;
 }
 
-string file_path(const string file_path_full) { // по введенному полному расположению файла выводит расположение
-    int num;
+string file_path(const string file_path_full) { // выводит расположение
+    int number;
     string abc;
-    num = file_path_full.find_last_of("\\");
-    abc = file_path_full.substr(0, num);
+    number = file_path_full.find_last_of("\\");
+    abc = file_path_full.substr(0, number);
     return abc;
 }
 
-char file_disk(const string file_path_full) {   // по введенному полному расположению файла выводит название диска
-    return file_path_full.at(0);
+char file_disk(const string file_path_full) {   // выводит название диска
+    return file_path_full[0];
 }
 
-string file_rename(string file_path_full) { // по введенному полному расположению файла и новому имени  переименовывает файл
+string file_rename(string file_path_full) { // переименовывает файл
     string new_name;
     cin >> new_name;
     file_path_full = file_path_full.substr(0, file_path_full.find_last_of("\\")+1) + new_name + ".cpp";
     return file_path_full;
 }
 
-bool file_copy(const string file_path_full) {
-    int num;
+bool file_copy(const string file_path_full) // копирует файл
+{
+    int number;
     std::fstream fs;
     std::fstream out;
     string temp;
-    num = file_path_full.find_first_of('.');
+    number = file_path_full.find_first_of('.');
     fs.open(file_path_full, std::fstream::in);
-    out.open(file_path_full.substr(0, num) + "_copy" + file_path_full.substr(num, file_path_full.size() - num),std::fstream::out);
+    out.open(file_path_full.substr(0, number) + "_copy" + file_path_full.substr(number, file_path_full.size() - number),std::fstream::out);
     while (!fs.eof()) {
         fs >> temp;
         out << temp << '\n';
@@ -62,17 +63,17 @@ bool file_copy(const string file_path_full) {
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
     string file_path_name;
     int a = 0;
     int choise;
     while (a == 0) {
-        std::cout << "Что вы хотите выполнить?" "\n" << "1. Ввод" "\n" << "2. задание 1" "\n" << "3. задание 2" "\n" << "4. задание 3" "\n" << "5. Задание 4" "\n" "6. Задание 5" "\n" "7. Задание 6"  "\n" "8. Выход" "\n";
+        std::cout << "What do you want?" "\n" << "1. Int\n2. test 1\n3. test 2\n4. test 3\n5. test 4\n6. test 5\n7. test 6\n8. Escape\n";
         cin >> choise;
         switch (choise)
         {
         case 1:
-            cout << "Введите расположение файла без пробелов "; cin >> file_path_name;
+            cout << "Input file_path_name"; 
+	    cin >> file_path_name;
             break;
         case 2:
             cout << file_format(file_path_name) << '\n';
@@ -92,13 +93,8 @@ int main()
         case 7:
             file_copy(file_path_name);
             break;
-        case 8:
-            cout << "Всего хорошего";
-            a++;
         default:
             break;
         }
-
-
     }
 }
